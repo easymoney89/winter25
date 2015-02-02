@@ -1,6 +1,6 @@
 {
   "name": "winter25",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Starter code for remote control IoT",
   "main": "1.js",
   "dependencies": {
