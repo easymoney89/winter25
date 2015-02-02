@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Server Date</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io(document.location.host);
+		socket.on('date', function (data) {
+		//console.log(data);
+		$("#serverDate").text(data.date);
+		$("#serverMilliseconds").text(data.milliseconds);
+	});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h2>Server Status</h2>
+		<div>Server date:  <span id="serverDate">...</span></div>
+		<div>Server milliseconds:  <span id="serverMilliseconds">...</span></div>
+	</div>
+</body>
+</html>

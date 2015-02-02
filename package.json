@@ -1,0 +1,28 @@
+{
+  "name": "winter25",
+  "version": "0.0.1",
+  "description": "Starter code for remote control IoT",
+  "main": "1.js",
+  "dependencies": {
+    "onoff": "^1.0.0",
+    "socket.io": "^1.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/saasmath/winter25"
+  },
+  "keywords": [
+    "gpio",
+    "http"
+  ],
+  "author": "Gary Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saasmath/winter25/issues"
+  },
+  "homepage": "https://github.com/saasmath/winter25"
+}
