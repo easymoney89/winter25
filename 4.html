@@ -21,15 +21,15 @@
     });
     
     socket.emit('clicked', {
-        whi: 'hi'
+        message: 'hi'
     });
 
     $(document).ready(function() {
         console.log('ready');
-        $("#clicked").click(function() {
+        $("#clickred").click(function() {
             console.log('clicked');
-            socket.volatile.emit('clicked', {
-                whi: 'hi'
+            socket.emit('clicked', {
+                message: 'hi'
             });
         });
     });

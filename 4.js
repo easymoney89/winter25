@@ -23,11 +23,14 @@ function handler(req, res) {
         });
 }
 
-io.on('clicked', function(data) {
-    console.log('clicked');
-});
+
 
 io.on('connection', function(socket) {
+
+    socket.on('clicked', function (data) {
+        console.log(data);
+    });
+
     button.watch(function(err, value) {
         if (err) exit();
         console.log('button', value);

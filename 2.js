@@ -1,3 +1,4 @@
+//Note:  Use sudo adduser $USER gpio to avoid needing sudo for this code
 var Gpio = require('onoff').Gpio,
     redled = new Gpio(17, 'out'),
     yellowled = new Gpio(27, 'out'),
