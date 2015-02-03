@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Server Date</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    var socket = io(document.location.host);
+    socket.on('date', function(data) {
+        //console.log(data);
+        $("#serverDate").text(data.date);
+        $("#serverMilliseconds").text(data.milliseconds);
+    });
+
+    socket.on('button', function(data) {
+        //console.log(data);
+        $("#button").text(data.status);
+    });
+    
+    socket.emit('clicked', {
+        message: 'lamptoggle'
+    });
+
+    $(document).ready(function() {
+        console.log('ready');
+        $("#clicklamp").click(function() {
+            console.log('clicked');
+            socket.emit('clicked', {
+                message: 'lamptoggle'
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Server Status 7</h2>
+        <h2 id='button'>button Status</h2>
+        <button id='clicklamp'>toggle lamp</button>
+        <div>Server date: <span id="serverDate">...</span>
+        </div>
+        <div>Server milliseconds: <span id="serverMilliseconds">...</span>
+        </div>
+    </div>
+</body>
+
+</html>
