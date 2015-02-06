@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+    <head>
+        <title>test page</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
+        <script>
+            var socket = io(document.location.host);
+            
+           // socket.on('connect', function () {
+               // var lightdata = [];
+               // for(var i=0;i<50;i++){
+                  //  lightdata.push(0);
+               // }
+
+                //var samples=[]
+                //for (var i = 0; i < lightdata.length; ++i) {
+                  //  samples.push([i, lightdata[i]])
+                //}
+
+               // var vis_ir_plot = $.plot("#light-data",[samples], {
+                   // series: {
+                     //   shadowSize: 0   // Drawing is faster without shadows
+                  //  },
+                   // yaxis: {
+                      //  min:0,
+                       // max: 500
+                    //},
+                    //xaxis: {
+                      //  show: false
+                  //  }
+                //});            
+            
+               // socket.on('light', function (data) {
+                  //  console.log(data);
+                  //  $("#light").text(data.vis_ir);
+                   // lightdata.shift();
+                  //  lightdata.push(data.vis_ir);
+                   // samples=[];
+                   // for (var i = 0; i < lightdata.length; ++i) {
+                      //  samples.push([i, lightdata[i]]);
+                   // }
+                   // vis_ir_plot.setData([samples]);
+                   // vis_ir_plot.draw();
+               // });
+
+          //  }); //end connect
+
+
+        $(document).ready(function() {
+            console.log('ready');
+            $("#clicklamp").click(function() {
+                console.log('lamptoggle');
+                socket.emit('lamptoggle', {
+                    message: 'lamptoggle'
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            console.log('ready');
+            $("#clickredled").click(function() {
+                console.log('redledtoggle');
+                socket.emit('redledtoggle', {
+                    message: 'redledtoggle'
+                });
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <button id='clicklamp'>toggle lamp</button>
+            <button id='clickredled'>toggle led</button>
+            <h2>Light</h2>
+            <!--<div >Light:  <span id="light">...</span> lux</div>-->
+            <h2>Graph</h2>
+            <div>
+            <!--<div id="light-data" style="width:540px;height:340px"></div>-->
+            </div>
+        </div>
+    </body>
+</html>
